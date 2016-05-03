@@ -4,10 +4,8 @@
 <script>
 function augurCallback(json) {
   var dfp = JSON.stringify(json);
-  if (window.Augur) {
-    window.Augur.parseJson_(dfp);
-  }
   document.getElementById('dfp').value = dfp;
+  window.location.href = "Augur://dfp:" + dfp;
 }
 </script>
 <script id="augur.js" async src="//cdn.augur.io/augur.min.js" data-e2ee="1" data-fastcallback="augurCallback" data-callback="augurCallback" data-warpspeed="truk"></script>
