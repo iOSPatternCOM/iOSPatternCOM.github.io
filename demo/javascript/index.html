@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+<script>
+function augurCallback(json) {
+  var dfp = JSON.stringify(json);
+  if (window.Augur) {
+    window.Augur.parseJson_(dfp);
+  }
+  document.getElementById('dfp').value = dfp;
+}
+</script>
+<script id="augur.js" async src="//cdn.augur.io/augur.min.js" data-e2ee="1" data-fastcallback="augurCallback" data-callback="augurCallback" data-warpspeed="truk"></script>
+</head>
+<body>
+<form name="yourForm">
+First Name:<input type="text" id="firstName" name="FirstName"><br />
+Last Name:<input type="text" id="lastName" name="LastName"><br />
+<input type="hidden" id="dfp" name="deviceFingerPrint">
+<input type="hidden" id="dft" name="deviceFingerprintTechnology"
+value="AU">
+<input id="submitbutton" type="submit" value="Submit Form"/>
+</form>
+</body>
+</html>
